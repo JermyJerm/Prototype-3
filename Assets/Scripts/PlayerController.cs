@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
-           playerRb.AddForce(Vector3.up * 100, ForceMode.Impulse);
+           playerRb.AddForce(Vector3.up * 7, ForceMode.Impulse);
            isOnGround = false;
         }
     }
