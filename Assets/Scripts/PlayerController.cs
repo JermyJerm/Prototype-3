@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     }
 
     public bool isOnGround = true;
+    public bool midAir = true;
+    int delayTime = 1;
+    private float xtraDelay = 1;
 
     void Update()
     {
@@ -24,7 +27,15 @@ public class PlayerController : MonoBehaviour
         {
            playerRb.AddForce(Vector3.up * 7, ForceMode.Impulse);
            isOnGround = false;
+           midAir = true;
            playerAnim.SetTrigger("Jump_Trig");
+        }
+
+        if (Input.GetKey(KeyCode.Z) && midAir)
+        {
+            playerRb.AddForce(Vector3.up * 7, ForceMode.Impulse);
+            midAir = false;
+            playerAnim.SetTrigger("Jump_Trig");
         }
     }
     
